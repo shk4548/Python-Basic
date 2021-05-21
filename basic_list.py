@@ -110,7 +110,7 @@ def list_methods():
     copy = lst.copy()   # 복제 메서드
     # Reverse : 리스트의 반전
     copy.reverse()
-    print("REVERSE:", copy)
+    print("REeVERSE:", copy)
 
     copy = lst.copy()
     print("원본:", copy)
