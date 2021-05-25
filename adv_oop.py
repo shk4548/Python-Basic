@@ -18,7 +18,7 @@ print(Chimera.__bases__)
 
 # 하위 클래스 or 파생 클래스: issubclass 함수
 print("Chimera는 str의 서브클래스?", issubclass(Chimera, str))
-print("Chimera는 myobj의 서브클래스?", issubclass(Chimera, myobj))
+print("Chimera는 myobj의d 서브클래스?", issubclass(Chimera, myobj))
 
 # 상위 클래스 or 기반 클래스: 별도 함수 없음, __bases__ 사용
 

@@ -5,7 +5,7 @@ class Point:
     #   클래스 이름 공간에 생성, 모든 인스턴스에서 객체 공유
     # 인스턴스 메서드의 첫 번째 인자는 항상 self
     def setX(self, x):
-        self.x = x  # self는 인스턴스 자신
+        self.x = x  # self는 인스턴스 자신dls
 
     def getX(self):
         return self.x

@@ -27,7 +27,7 @@ def class_member_test():
     p1.setY(20)
 
     print("p1: {}, {}".format(p1.getX(), p1.getY()))
-    print("instance_count:",
+    print("innstance_count:",
           p1.instance_count,    # 인스턴스에서 접근 가능
           Point.instance_count) # 인스턴스 없이도 접근 가능
 
