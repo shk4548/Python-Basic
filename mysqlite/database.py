@@ -6,7 +6,7 @@ class Database:
         self.conn = None
         self.cursor = None
 
-        if db: # db 파라미터가 전달 되었으면
+        if db:  # db 파라미터가 전달 되었으면
             self.open(db)
 
     # 접속 메서드
@@ -20,6 +20,6 @@ class Database:
     # 닫기 메서드
     def close(self):
         if self.conn:
-            self.conn.commit() # 남아있는 I, U, D 쿼리를 커밋
+            self.conn.commit()  # 남아있는 I, U, D 쿼리를 커밋
             self.cursor.close()
             self.conn.close()
