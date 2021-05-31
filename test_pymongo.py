@@ -1,5 +1,5 @@
 # pip install pymongo
-from pymongo import  MongoClient
+from pymongo import MongoClient
 
 # 접속 함수
 def connect():
@@ -9,20 +9,22 @@ def connect():
 # 접속 테스트
 def test_connect():
     conn = connect()
-    #print(dir(conn))
-    print("데이터베이스")
+    # print(dir(conn))
+    print("데이터베이스:")
     for db in conn.list_database_names():
         print(db)
+
 
 # 컬렉션 확인
 def test_collection():
     # 접속
     conn = connect()
-    # 사용할 데이터 베이스 선택
-    db =conn['mydb'] # use mydb
+    # 사용할 데이터베이스 선택
+    db = conn['mydb'] # use mydb
     # 컬렉션 선택
     coll = db['pymongo']
     return coll
+
 
 def test_insert():
     # 컬렉션 확보
@@ -80,13 +82,33 @@ def test_select_by_filter(filter={}, projection={}):
         print(doc)
 
 
+def test_delete_by_filter(filter = {}):
+    coll = test_collection()
+    xs = coll.delete_many(filter)
+    print(xs.deleted_count, "개의 레코드가 삭제!")
+
+
+import re   # 정규표현식 객체
 if __name__ == "__main__":
     # test_connect()
     # test_insert()
     # test_insert_many()
     # test_update()
-    test_select_by_filter(projection={
-        "name": 1, "address": 1, "_id": 0
-    }) # filter={}, projection={}
+    # test_select_by_filter(projection={
+    #     "name": 1, "address": 1, "_id": 0
+    # }) # filter={}, projection={}
     # SELECT * FROM 테이블 WHERE 컬럼 LIKE ->
     # 정규식을 이용, 패턴 전달
+    # filter = re.compile(r"길동")
+    # """
+    # db.pymongo.find({ "name": /길동/ }, { "name": 1, "_id": 0)
+    # """
+    # test_select_by_filter({ "name": filter },
+    #                       { "name": 1, "_id": 0 })
+    #
+    # address == "서울" 인 문서들 삭제
+    # test_delete_by_filter({ "address": "서울" })
+    # db.pymongo.delete({"address": "서울"})
+    # 전체 문서 삭제
+    # db.pymongo.delete({})
+    test_delete_by_filter()
